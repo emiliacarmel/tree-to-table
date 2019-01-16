@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.html",
+    "start": "nodemon ./server/server.js",
     "webpack": "webpack"
   },
   "author": "emilia brizuela-nothaft",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "mongoose": "^5.4.4",
     "nodemon": "^1.18.9",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
