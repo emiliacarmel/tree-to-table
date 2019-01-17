@@ -1,26 +1,30 @@
 const Entry = require('./../schemas/schema.js')
 
-
 const entryController = {};
+// console.log('heres the entry schema: ' + Entry);
 
 entryController.create = (req, res, next) => {
-  // js code that creates a new entry
-  // will be communicating w database using a callback that requires err, docs
-  // look up in mongoose docs
-  console.log('Made it to middleware');
+  Entry.create(req.body, (err, doc) => {
+    if (err) {
+      console.log('Error: ' + err);
+    }
+  })
   next();
 };
 
-entryController.edit = (req, res, next) => {
+entryController.getList = (req, res, next) => {
+  Entry.find({}, (err, doc) => {
+    res.locals.doc = doc;
+    next();
+  })
+};
 
+entryController.edit = (req, res, next) => {
+  // code to edit entries
 };
 
 entryController.remove = (req, res, next) => {
-
-};
-
-entryController.getList = (req, res, next) => {
-
+  // code to delete entries
 };
 
 
